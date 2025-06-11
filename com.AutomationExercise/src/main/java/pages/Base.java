@@ -8,6 +8,7 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -43,7 +44,13 @@ public class Base {
 		}
 
 		if (browser.equalsIgnoreCase("edge")) {
-			driver = new EdgeDriver();
+			EdgeOptions options = new EdgeOptions();
+	        options.addArguments("--headless=new");  // Use headless mode
+	        options.addArguments("--disable-gpu");
+	        options.addArguments("--window-size=1920,1080"); // Optional
+			driver = new EdgeDriver(options);
+
+
 		}
 
 		if (browser.equalsIgnoreCase("firefox")) {
