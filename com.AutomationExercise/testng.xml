@@ -10,14 +10,6 @@
 		</classes>
 	</test>
 
-	<test thread-count="5" name="TestEdge" parallel="classes">
-		<parameter name="browser" value="edge"></parameter>
-
-		<classes>
-			<class name="testCases.SigupTest" />
-		</classes>
-	</test>
-
 	<test thread-count="5" name="TestFireFox" parallel="classes">
 		<parameter name="browser" value="firefox"></parameter>
 

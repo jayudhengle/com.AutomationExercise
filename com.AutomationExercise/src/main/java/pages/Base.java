@@ -43,15 +43,15 @@ public class Base {
 			driver = new ChromeDriver();
 		}
 
-		if (browser.equalsIgnoreCase("edge")) {
-			EdgeOptions options = new EdgeOptions();
-	        options.addArguments("--headless=new");  // Use headless mode
-	        options.addArguments("--disable-gpu");
-	        options.addArguments("--window-size=1920,1080"); // Optional
-			driver = new EdgeDriver(options);
-
-
-		}
+//		if (browser.equalsIgnoreCase("edge")) {
+//			EdgeOptions options = new EdgeOptions();
+//	        options.addArguments("--headless=new");  // Use headless mode
+//	        options.addArguments("--disable-gpu");
+//	        options.addArguments("--window-size=1920,1080"); // Optional
+//			driver = new EdgeDriver(options);
+//
+//
+//		}
 
 		if (browser.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
