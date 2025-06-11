@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-06-11T19:00:08 IST" name="Suite" finished-at="2025-06-11T19:00:35 IST" duration-ms="26587">
+    <groups>
+    </groups>
+    <test started-at="2025-06-11T19:00:08 IST" name="TestChrome" finished-at="2025-06-11T19:00:27 IST" duration-ms="19267">
+      <class name="testCases.SigupTest">
+        <test-method is-config="true" signature="getURLDetails()[pri:0, instance:testCases.SigupTest@5e7cd6cc]" started-at="2025-06-11T19:00:08 IST" name="getURLDetails" finished-at="2025-06-11T19:00:08 IST" duration-ms="43" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getURLDetails -->
+        <test-method is-config="true" signature="lauchBrowser(java.lang.String)[pri:0, instance:testCases.SigupTest@5e7cd6cc]" started-at="2025-06-11T19:00:08 IST" name="lauchBrowser" finished-at="2025-06-11T19:00:17 IST" duration-ms="8821" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- lauchBrowser -->
+        <test-method signature="singupToApplication()[pri:0, instance:testCases.SigupTest@5e7cd6cc]" started-at="2025-06-11T19:00:17 IST" name="singupToApplication" finished-at="2025-06-11T19:00:25 IST" duration-ms="8447" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- singupToApplication -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.SigupTest@5e7cd6cc]" started-at="2025-06-11T19:00:25 IST" name="closeBrowser" finished-at="2025-06-11T19:00:27 IST" duration-ms="1825" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- testCases.SigupTest -->
+    </test> <!-- TestChrome -->
+    <test started-at="2025-06-11T19:00:08 IST" name="TestEdge" finished-at="2025-06-11T19:00:30 IST" duration-ms="21704">
+      <class name="testCases.SigupTest">
+        <test-method is-config="true" signature="getURLDetails()[pri:0, instance:testCases.SigupTest@1f9e9475]" started-at="2025-06-11T19:00:08 IST" name="getURLDetails" finished-at="2025-06-11T19:00:08 IST" duration-ms="41" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getURLDetails -->
+        <test-method is-config="true" signature="lauchBrowser(java.lang.String)[pri:0, instance:testCases.SigupTest@1f9e9475]" started-at="2025-06-11T19:00:08 IST" name="lauchBrowser" finished-at="2025-06-11T19:00:20 IST" duration-ms="11634" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- lauchBrowser -->
+        <test-method signature="singupToApplication()[pri:0, instance:testCases.SigupTest@1f9e9475]" started-at="2025-06-11T19:00:20 IST" name="singupToApplication" finished-at="2025-06-11T19:00:28 IST" duration-ms="8275" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- singupToApplication -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.SigupTest@1f9e9475]" started-at="2025-06-11T19:00:28 IST" name="closeBrowser" finished-at="2025-06-11T19:00:30 IST" duration-ms="1630" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- testCases.SigupTest -->
+    </test> <!-- TestEdge -->
+    <test started-at="2025-06-11T19:00:08 IST" name="TestFireFox" finished-at="2025-06-11T19:00:35 IST" duration-ms="26587">
+      <class name="testCases.SigupTest">
+        <test-method is-config="true" signature="getURLDetails()[pri:0, instance:testCases.SigupTest@d23e042]" started-at="2025-06-11T19:00:08 IST" name="getURLDetails" finished-at="2025-06-11T19:00:08 IST" duration-ms="43" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getURLDetails -->
+        <test-method is-config="true" signature="lauchBrowser(java.lang.String)[pri:0, instance:testCases.SigupTest@d23e042]" started-at="2025-06-11T19:00:08 IST" name="lauchBrowser" finished-at="2025-06-11T19:00:26 IST" duration-ms="17851" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- lauchBrowser -->
+        <test-method signature="singupToApplication()[pri:0, instance:testCases.SigupTest@d23e042]" started-at="2025-06-11T19:00:26 IST" name="singupToApplication" finished-at="2025-06-11T19:00:33 IST" duration-ms="6910" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- singupToApplication -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.SigupTest@d23e042]" started-at="2025-06-11T19:00:33 IST" name="closeBrowser" finished-at="2025-06-11T19:00:35 IST" duration-ms="1657" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- testCases.SigupTest -->
+    </test> <!-- TestFireFox -->
+  </suite> <!-- Suite -->
+</testng-results>
