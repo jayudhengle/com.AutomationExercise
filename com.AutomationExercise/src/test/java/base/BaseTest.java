@@ -1,4 +1,4 @@
-package pages;
+package base;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,32 +7,30 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
-public class Base {
+public class BaseTest {
 
-	private WebDriver driver;
+	public static WebDriver driver;
 
 	String browser = "Chrome";
 	String url;
-	
+
 	@BeforeTest
-	public void getURLDetails() throws IOException
-	{
-		FileInputStream fis =  new FileInputStream("./src/test/resources/appdetails.properties");
+	public void getURLDetails() throws IOException {
+		FileInputStream fis = new FileInputStream("./src/test/resources/config.properties");
 		Properties prop = new Properties();
 		prop.load(fis);
 		url = prop.getProperty("url");
 	}
-	
-	public WebDriver getDriver() {
-		return (driver);
+
+	public static WebDriver getDriver() {
+		return driver;
 
 	}
 
@@ -66,6 +64,15 @@ public class Base {
 
 	@AfterMethod
 	public void closeBrowser() {
-		driver.quit();
+		if (driver != null) {
+			driver.close();
+		}
+	}
+
+	@AfterTest
+	public void closeAllOpenBrowser() {
+		if (driver != null) {
+			driver.quit();
+		}
 	}
 }

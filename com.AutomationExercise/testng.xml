@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="tests" thread-count="5">
+<suite name="Suite" thread-count="5">
 
-	<test thread-count="5" name="TestChrome" parallel="classes">
+	<listeners>
+		<listener class-name="listners.TestListners"></listener>
+	</listeners>
+
+	<test thread-count="5" name="TestChrome">
 		<parameter name="browser" value="chrome"></parameter>
 
+		<groups>
+			<run>
+				<exclude name="smoke"></exclude>
+				<exclude name="regression"></exclude>
+
+			</run>
+		</groups>
+
 		<classes>
-			<class name="testCases.SigupTest" />
+			<class name="tests.SignupTest">
+			</class>
 		</classes>
 	</test>
-
-	<test thread-count="5" name="TestFireFox" parallel="classes">
-		<parameter name="browser" value="firefox"></parameter>
-
-		<classes>
-			<class name="testCases.SigupTest" />
-		</classes>
-	</test>
-
-
 </suite> 
