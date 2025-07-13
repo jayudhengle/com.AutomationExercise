@@ -36,10 +36,10 @@ public class SignupTest extends BaseTest {
 		homePage = new HomePage(getDriver());
 		homePage.clickSignupLoginLink();
 		signUp = new SignupLoginPage(getDriver());
-		signUp.newUserSignup("TestName", "1239Test@gmail.com");
+		signUp.newUserSignup("TestName", "1240Test@gmail.com");
 		registrationPage = new RegistrationPage(getDriver());
 		Assert.assertEquals(registrationPage.getNameElement().getAttribute("value"), "TestName");
-		Assert.assertEquals(registrationPage.getEmailElement().getAttribute("value"), "1239Test@gmail.com");
+		Assert.assertEquals(registrationPage.getEmailElement().getAttribute("value"), "1240Test@gmail.com");
 	}
 
 //	@Test(groups = { "smoke" })

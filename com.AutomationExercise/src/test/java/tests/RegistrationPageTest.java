@@ -20,7 +20,7 @@ public class RegistrationPageTest extends BaseTest {
 		homePage.clickSignupLoginLink();
 
 		signUp = new SignupLoginPage(getDriver());
-		signUp.newUserSignup("TestName", "123459Test@gmail.com");
+		signUp.newUserSignup("TestName", "123460Test@gmail.com");
 
 		registrationPage = new RegistrationPage(getDriver());
 
