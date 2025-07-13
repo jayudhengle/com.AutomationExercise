@@ -15,13 +15,12 @@ public class RegistrationPageTest extends BaseTest {
 
 	@Test(dataProvider = "registrationData", dataProviderClass = dataproviders.DataProviderClass.class)
 	public void testRegistrationPage(String title, String password, String dob, String firstName, String lastName,
-			String address1, String country, String state, String city, String zipCode, String mobileNumber)
-			throws InterruptedException {
+			String address1, String country, String state, String city, String zipCode, String mobileNumber) {
 		homePage = new HomePage(getDriver());
 		homePage.clickSignupLoginLink();
 
 		signUp = new SignupLoginPage(getDriver());
-		signUp.newUserSignup("TestName", "123456Test@gmail.com");
+		signUp.newUserSignup("TestName", "123459Test@gmail.com");
 
 		registrationPage = new RegistrationPage(getDriver());
 
@@ -29,6 +28,5 @@ public class RegistrationPageTest extends BaseTest {
 				city, zipCode, mobileNumber);
 
 		registrationPage.clickCreateAccountButton();
-
 	}
 }

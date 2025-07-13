@@ -7,58 +7,44 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 public class BaseTest {
 
 	public static WebDriver driver;
 
-	String browser = "Chrome";
-	String url;
+	public static WebDriver getDriver() {
+		return driver;
+	}
 
-	@BeforeTest
-	public void getURLDetails() throws IOException {
+	@BeforeMethod
+	@Parameters("browser")
+	public void lauchBrowser(String browser) throws IOException {
+		// Load the URL from config.properties
 		FileInputStream fis = new FileInputStream("./src/test/resources/config.properties");
 		Properties prop = new Properties();
 		prop.load(fis);
-		url = prop.getProperty("url");
-	}
+		String url = prop.getProperty("url");
 
-	public static WebDriver getDriver() {
-		return driver;
-
-	}
-
-	@BeforeMethod()
-	@Parameters("browser")
-	public void lauchBrowser(String browser) {
+		// Launch the browser
 		if (browser.equalsIgnoreCase("chrome")) {
 			driver = new ChromeDriver();
-		}
-
-//		if (browser.equalsIgnoreCase("edge")) {
-//			EdgeOptions options = new EdgeOptions();
-//	        options.addArguments("--headless=new");  // Use headless mode
-//	        options.addArguments("--disable-gpu");
-//	        options.addArguments("--window-size=1920,1080"); // Optional
-//			driver = new EdgeDriver(options);
-//
-//
-//		}
-
-		if (browser.equalsIgnoreCase("firefox")) {
+		} else if (browser.equalsIgnoreCase("edge")) {
+			driver = new EdgeDriver();
+		} else if (browser.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
+		} else {
+			throw new IllegalArgumentException("Unsupported browser: " + browser);
 		}
 
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
 		driver.get(url);
 	}
 

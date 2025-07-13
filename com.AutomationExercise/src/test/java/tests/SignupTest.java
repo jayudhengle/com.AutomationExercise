@@ -32,39 +32,39 @@ public class SignupTest extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @Story("Valid Signup with correct username and password")
     @Description("Test Description: Signup test with valid credentials")
-	public void singupToApplication() throws InterruptedException, IOException {
+	public void singupToApplication() {
 		homePage = new HomePage(getDriver());
 		homePage.clickSignupLoginLink();
 		signUp = new SignupLoginPage(getDriver());
-		signUp.newUserSignup("TestName", "1233Test@gmail.com");
+		signUp.newUserSignup("TestName", "1239Test@gmail.com");
 		registrationPage = new RegistrationPage(getDriver());
 		Assert.assertEquals(registrationPage.getNameElement().getAttribute("value"), "TestName");
-		Assert.assertEquals(registrationPage.getEmailElement().getAttribute("value"), "123Test@gmail.com");
+		Assert.assertEquals(registrationPage.getEmailElement().getAttribute("value"), "1239Test@gmail.com");
 	}
 
-	@Test(groups = { "smoke" })
-	public void smokeTest() {
-		System.out.println("This is smoke test!!");
-	}
-
-	@Test(groups = { "regression" })
-	public void regressionTest1() {
-		System.out.println("This is regression test1!!");
-		Assert.assertEquals(1, 1);
-	}
-
-	@Test(groups = { "regression" }, dependsOnMethods = "regressionTest1")
-	public void regressionTest2() {
-		System.out.println("This is regression test2!!");
-	}
-
-	@Test(groups = { "system" })
-	public void systemTest() {
-		System.out.println("This is system test");
-	}
-
-	@Test(groups = { "system", "smoke" })
-	public void systemSmokeTest() {
-		System.out.println("This is system as well as smoke test");
-	}
+//	@Test(groups = { "smoke" })
+//	public void smokeTest() {
+//		System.out.println("This is smoke test!!");
+//	}
+//
+//	@Test(groups = { "regression" })
+//	public void regressionTest1() {
+//		System.out.println("This is regression test1!!");
+//		Assert.assertEquals(1, 1);
+//	}
+//
+//	@Test(groups = { "regression" }, dependsOnMethods = "regressionTest1")
+//	public void regressionTest2() {
+//		System.out.println("This is regression test2!!");
+//	}
+//
+//	@Test(groups = { "system" })
+//	public void systemTest() {
+//		System.out.println("This is system test");
+//	}
+//
+//	@Test(groups = { "system", "smoke" })
+//	public void systemSmokeTest() {
+//		System.out.println("This is system as well as smoke test");
+//	}
 }

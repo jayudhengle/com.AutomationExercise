@@ -2,20 +2,19 @@ package listners;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;      
-import java.nio.file.StandardCopyOption;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-
 import base.BaseTest;
-import pages.RegistrationPage;
+import io.qameta.allure.Attachment;
 
-public class TestListners extends BaseTest implements ITestListener
-{
+public class TestListners implements ITestListener {
 
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -28,33 +27,28 @@ public class TestListners extends BaseTest implements ITestListener
 	}
 
 	@Override
-	public void onTestFailure(ITestResult result) {
-		System.out.println("Test Failed!!!" + result.getName());
-		
-		TakesScreenshot ts = (TakesScreenshot) BaseTest.getDriver();
-		
-		File source = ts.getScreenshotAs(OutputType.FILE);		
-		File destination = new File("./target/Screenshots/" + result.getName() + ".png");
-		
-		
-		try {
-			Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}		
-		
-		RegistrationPage registrationPage = new RegistrationPage(BaseTest.getDriver());
-		
-		File source1 = registrationPage.getEmailElement().getScreenshotAs(OutputType.FILE);
-		File destination1 = new File("./target/Screenshots/" + "1" + ".png");
-		try {
-			Files.copy(source1.toPath(), destination1.toPath(), StandardCopyOption.REPLACE_EXISTING);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+    public void onTestFailure(ITestResult result) {
+        System.out.println("❌ Test Failed: " + result.getName());
 
+        WebDriver driver = BaseTest.getDriver();
+        if (driver != null) {
+            captureScreenshot(driver);
+        }
+        
+        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File destFile = new File("screenshots/" + System.currentTimeMillis() + ".png");
+        try {
+            FileUtils.copyFile(srcFile, destFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+   
+
+    @Attachment(value = "Failure Screenshot", type = "image/png")
+    public byte[] captureScreenshot(WebDriver driver) {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    }
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
@@ -70,6 +64,5 @@ public class TestListners extends BaseTest implements ITestListener
 	public void onFinish(ITestContext context) {
 		System.out.println("Test suite completed!!!" + context.getName());
 	}
-	
 
 }

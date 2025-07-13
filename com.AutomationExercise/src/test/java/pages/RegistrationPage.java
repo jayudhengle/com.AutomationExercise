@@ -65,11 +65,9 @@ public class RegistrationPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	
+
 	public void enterRegistrationDetails(String title, String password, String dob, String firstName, String lastName,
-			String address1, String country, String state, String city, String zipCode, String mobileNumber)
-			throws InterruptedException {
+			String address1, String country, String state, String city, String zipCode, String mobileNumber) {
 
 		if (title == "Mr.") {
 			mrRadioBtn.click();
@@ -97,13 +95,11 @@ public class RegistrationPage {
 		createAccountBtn.click();
 	}
 
-	public WebElement getNameElement()
-	{
+	public WebElement getNameElement() {
 		return (nameTxtBox);
 	}
-	
-	public WebElement getEmailElement()
-	{
+
+	public WebElement getEmailElement() {
 		return (emailTxtBox);
 	}
 }

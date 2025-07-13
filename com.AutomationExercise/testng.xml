@@ -8,10 +8,9 @@
 
 	<test thread-count="5" name="TestChrome">
 		<parameter name="browser" value="chrome"></parameter>
-
 		<classes>
-			<class name="tests.SignupTest">
-			</class>
+			<class name="tests.SignupTest" />
+			<class name="tests.RegistrationPageTest" />
 		</classes>
 	</test>
 </suite> 

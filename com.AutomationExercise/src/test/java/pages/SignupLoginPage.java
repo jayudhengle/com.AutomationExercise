@@ -6,61 +6,36 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class SignupLoginPage {
-	
+
 	WebDriver driver;
-	
-	@FindBy(xpath="//*[@data-qa='login-email']")
+
+	@FindBy(xpath = "//*[@data-qa='login-email']")
 	WebElement loginEmail;
-	
-	@FindBy(name= "password")
+
+	@FindBy(name = "password")
 	WebElement loginPassword;
-	
-	@FindBy(xpath="//*[text()= 'Login']")
+
+	@FindBy(xpath = "//*[text()= 'Login']")
 	WebElement loginButton;
-	
-	@FindBy(xpath="//*[@data-qa='signup-name']")
+
+	@FindBy(xpath = "//*[@data-qa='signup-name']")
 	WebElement signupName;
-	
-	@FindBy(xpath="//*[@data-qa='signup-email']")
+
+	@FindBy(xpath = "//*[@data-qa='signup-email']")
 	WebElement signupEmail;
-	
-	@FindBy(xpath ="//*[text()= 'Signup']")
+
+	@FindBy(xpath = "//*[text()= 'Signup']")
 	WebElement singupButton;
-	
-	
-	public SignupLoginPage(WebDriver driver)
-	{
+
+	public SignupLoginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	public void newUserSignup(String name, String email) throws InterruptedException
-	{
-		
+
+	public void newUserSignup(String name, String email) {
+
 		signupName.sendKeys(name);
 		signupEmail.sendKeys(email);
 		singupButton.click();
-		Thread.sleep(3000);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
