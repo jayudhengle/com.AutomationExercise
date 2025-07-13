@@ -1,42 +1,45 @@
 package tests;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 
-import org.openqa.selenium.OutputType;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import listners.TestListners;
 import pages.HomePage;
 import pages.RegistrationPage;
 import pages.SignupLoginPage;
 
 @Listeners(TestListners.class)
+
+@Epic("Signup Feature")
+@Feature("Signup Tests")
 public class SignupTest extends BaseTest {
 
 	SignupLoginPage signUp;
 	HomePage homePage;
 	RegistrationPage registrationPage;
 
-	@Test
+	@Test(description = "Valid Signup Test")
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("Valid Signup with correct username and password")
+    @Description("Test Description: Signup test with valid credentials")
 	public void singupToApplication() throws InterruptedException, IOException {
 		homePage = new HomePage(getDriver());
 		homePage.clickSignupLoginLink();
-
 		signUp = new SignupLoginPage(getDriver());
 		signUp.newUserSignup("TestName", "1233Test@gmail.com");
-
 		registrationPage = new RegistrationPage(getDriver());
-
 		Assert.assertEquals(registrationPage.getNameElement().getAttribute("value"), "TestName");
-
 		Assert.assertEquals(registrationPage.getEmailElement().getAttribute("value"), "123Test@gmail.com");
-		
 	}
 
 	@Test(groups = { "smoke" })

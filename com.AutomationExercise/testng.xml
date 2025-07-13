@@ -9,14 +9,6 @@
 	<test thread-count="5" name="TestChrome">
 		<parameter name="browser" value="chrome"></parameter>
 
-		<groups>
-			<run>
-				<exclude name="smoke"></exclude>
-				<exclude name="regression"></exclude>
-
-			</run>
-		</groups>
-
 		<classes>
 			<class name="tests.SignupTest">
 			</class>

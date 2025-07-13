@@ -6,12 +6,6 @@
   </listeners>
   <test thread-count="5" name="TestChrome(failed)">
     <parameter name="browser" value="chrome"/>
-    <groups>
-      <run>
-        <exclude name="smoke"/>
-        <exclude name="regression"/>
-      </run>
-    </groups>
     <classes>
       <class name="tests.SignupTest">
         <methods>

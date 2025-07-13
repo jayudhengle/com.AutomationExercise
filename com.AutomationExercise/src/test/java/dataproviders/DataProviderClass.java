@@ -6,7 +6,7 @@ public class DataProviderClass {
 
 	@DataProvider
 	public Object[][] registrationData() {
-		
+
 		String title = "Mrs.";
 		String password = "Password";
 		String dob = "30 April 1987";
